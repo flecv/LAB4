@@ -1,0 +1,40 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.example.grpc.server.grpcserver.order;
+
+message ProtoOrder {
+int32 request = 1;
+string customer_id = 2;
+string director_name = 3;
+string status = 4;
+}
+
+message GetRequest {
+string order_id = 1;
+}
+
+message GetResponse {
+int32 request = 1;
+}
+
+message CreateRequest {
+ProtoOrder order = 1;
+}
+
+message CreateResponse {
+string id = 1;
+}
+
+message DeleteRequest {
+	string order_id = 1;
+}
+
+message DeleteResponse {
+    string report = 1;
+}
+
+service OrderService {
+rpc get(GetRequest) returns (GetResponse);
+rpc delete(DeleteRequest) returns (DeleteResponse);
+rpc create(CreateRequest) returns (CreateResponse);
+}

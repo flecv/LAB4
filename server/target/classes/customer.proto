@@ -1,0 +1,30 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.example.grpc.server.grpcserver.customer;
+
+message ProtoCustomer {
+string name = 1;
+int32 age = 2;
+int32 request = 3;
+}
+
+message GetRequest {
+string customer_id = 1;
+}
+
+message GetResponse {
+int32 request = 1;
+}
+
+message CreateRequest {
+ProtoCustomer customer = 1;
+}
+
+message CreateResponse {
+ string id = 1;
+}
+
+service CustomerService {
+rpc get(GetRequest) returns (GetResponse);
+rpc create(CreateRequest) returns (CreateResponse);
+}

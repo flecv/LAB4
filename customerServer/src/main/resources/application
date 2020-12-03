@@ -1,0 +1,7 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/customerdb
+spring.datasource.username=postgres
+spring.datasource.password=123456qw
+spring.jpa.generate-ddl=true
+
+server.port=8082
+grpc.server.port=9092
